@@ -35,7 +35,7 @@ npm install
 
 ### 배포 링크
 
-[배포링크 바로가기](https://sage-moxie-699b78.netlify.app/)
+[배포링크 바로가기](https://sage-moxie-699b78.netlify.app/)(localStorage)
 <br/>
 
 ## 프로젝트 설명
