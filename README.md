@@ -88,15 +88,40 @@ npm install
 </details>
 
 <details>
-<summary>❓ 기능설명</summary>
+<summary>🗔 클라이언트</summary>
 <div markdown="1">
 
 ```
+-  클라이언트 
+ -로그인 및 회원가입 
+클라이언트에서 HOC로 각 페이지 라우팅시에 로그인이 필요한 페이지인지 아닌지를 판단할 수 있게 권한을 옵션으로 설정했습니다.
+redux-thunk를 이용해 로그인/로그아웃/회원가입에 대한 상태관리를 했습니다.
+
+- todoList CRUD
+현재localStorage로 CRUD작업이 진행되었습니다. 
+react-beautiful-dnd라이브러리를 이용해, 드래그 앤 드롭이 가능하게끔 구현했습니다.
+depth가 얕아 useState를 이용해, 상태관리를 진행했고 props로 데이터를 내려 list를 수정 및 삭제합니다.
+
+- 마이페이지
+유저에게 필요한 정보를 받아와 데이터를 보여줍니다. 현재는 아이디/이메일/이름만 가져오고 있습니다.
 
 ```
+
 </div>
 </details>
 
+<details>
+<summary>💾 서버(express.js)</summary>
+<div markdown="1">
+
+```
+글이 길어져 velog에 정리.
+정리 중입니다.
+```
+<a href="https://velog.io/@kip/series/react%EC%99%80-mongoDB%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%B4-%EC%9B%B9-%ED%8E%98%EC%9D%B4%EC%A7%80-%EC%A0%9C%EC%9E%91">설명 바로가기</a>
+
+</div>
+</details>
 
 ---
 
