@@ -4,7 +4,6 @@ import Lists from "../../components/Lists";
 import axios from "axios";
 import auth from "../../hoc/auth";
 const MainPage = () => {
-
     console.log("app is rendering");
     let localData = localStorage.getItem("todoData");
     const [todoData, setTododata] = useState(JSON.parse(localData) || []);
@@ -41,18 +40,33 @@ const MainPage = () => {
         [todoData]
     );
     return (
-        <div className='flex items-center justify-center w-screen h-screen bg-blue-100'>
-            <div className='w-full p-6 m-4 bg-white rounded shadow lg:w-3/4 md:w-3/4 '>
-                <div className='flex justify-between'>
-                    <h1>할 일 목록</h1>
-                    <button onClick={handleRemoveClick}>Delete All</button>
+        <div className="flex items-center flex-col pt-24 w-screen h-screen bg-blue-100">
+            <div className="text-6xl bg-blue-300 rounded-full p-4 ">
+                todoList
+            </div>
+            <div className="w-full p-6 mt-16 m-4 bg-white rounded shadow lg:w-3/4 md:w-3/4 ">
+                <div className="m-auto text-center w-48">
+                    <h1 className="text-3xl bg-blue-100 rounded-md m-2 p-2">
+                        할 일 목록
+                    </h1>
+                    <button
+                        className="text-red-600 font-mono"
+                        onClick={handleRemoveClick}>
+                        🗑️delete All
+                    </button>
                 </div>
-                <Lists
-                    handleClick={handleClick}
-                    todoData={todoData}
-                    setTododata={setTododata}
-                />
-                <Form value={value} setValue={setValue} onSubmit={onSubmit} />
+                <div className="">
+                    <Lists
+                        handleClick={handleClick}
+                        todoData={todoData}
+                        setTododata={setTododata}
+                    />
+                    <Form
+                        value={value}
+                        setValue={setValue}
+                        onSubmit={onSubmit}
+                    />
+                </div>
             </div>
         </div>
     );

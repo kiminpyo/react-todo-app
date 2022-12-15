@@ -15,7 +15,6 @@ const List = React.memo(
         const [isEdit, setIsEdit] = useState(false);
         console.log("list is rendering");
 
-
         const checkHandler = (id) => {
             let newTodoData = todoData.map((v) => {
                 if (v.id === id) {
@@ -24,49 +23,49 @@ const List = React.memo(
                 return v;
             });
             setTododata(newTodoData);
-        }
-      
-        const handleEditChange = (e)=>{
-  
-            setEditTitle(e.target.value)
-          
-        }
-        const handleSaveClick = useCallback((e) => {
-            e.preventDefault();
-            let newTododata = todoData.map((v) => {
-                if (v.id === id) {
-                    v.title = editTitle;
-                }
-                return v;
-            });
-            setTododata(newTododata);
-            localStorage.setItem('todoData',JSON.stringify(newTododata))
-            setIsEdit((prev) => !prev);
-        },[editTitle]);
+        };
+
+        const handleEditChange = (e) => {
+            setEditTitle(e.target.value);
+        };
+        const handleSaveClick = useCallback(
+            (e) => {
+                e.preventDefault();
+                let newTododata = todoData.map((v) => {
+                    if (v.id === id) {
+                        v.title = editTitle;
+                    }
+                    return v;
+                });
+                setTododata(newTododata);
+                localStorage.setItem("todoData", JSON.stringify(newTododata));
+                setIsEdit((prev) => !prev);
+            },
+            [editTitle]
+        );
 
         if (isEdit) {
             return (
-                <div className='bg-blue-50 m-4 '>
-                    <div className='flex justify-between'>
+                <div className="bg-blue-50 p-2 m-4  rounded-xl ">
+                    <div className="flex justify-between">
                         <div>
                             <form onSubmit={handleSaveClick}>
                                 <input
                                     onChange={handleEditChange}
                                     value={editTitle}
-                                    className='w-full px-3 py-3'
                                     autoFocus
                                 />
                             </form>
                         </div>
-                        <div className='flex '>
-                            <div className='bg-gray-40 pr-3'>
+                        <div className="flex ">
+                            <div className="bg-gray-40 pr-3 font-bold">
                                 <button onClick={handleSaveClick} type="submit">
-                                    save
+                                    💾save
                                 </button>
                             </div>
-                            <div className='bg-gray-40'>
+                            <div className="bg-gray-40 ">
                                 <button onClick={() => handleClick(id)}>
-                                    x
+                                    ✖️
                                 </button>
                             </div>
                         </div>
@@ -78,32 +77,39 @@ const List = React.memo(
         return (
             <div
                 className={`${
-                    snapshot.isDragging ? "bg-slate-500 m-4" : "bg-blue-50 m-4 "
+                    snapshot.isDragging
+                        ? "bg-slate-500 m-4 p-2 rounded-xl"
+                        : "bg-blue-50 p-2 m-4 rounded-xl "
                 }`}
                 key={id}
                 {...provided.draggableProps}
                 ref={provided.innerRef}
                 {...provided.dragHandleProps}>
-                <div className='flex justify-between'>
+                <div className="flex justify-between">
                     <div>
                         <input
-                            type='checkbox'
+                            type="checkbox"
                             defaultChecked={false}
                             onClick={() => checkHandler(id)}
                         />
-                        <span className={checked ? "line-through" : undefined}>
+                        <span
+                            className={
+                                checked
+                                    ? "line-through text-xl p-2 font-mono"
+                                    : "text-xl p-2 font-mono"
+                            }>
                             {title}
                         </span>
                     </div>
-                    <div className='flex '>
-                        <div className='bg-gray-40 pr-3'>
+                    <div className="flex ">
+                        <div className="bg-gray-40 pr-3  font-bold">
                             <button onClick={() => setIsEdit(true)}>
-                                edit
+                                📋edit
                             </button>
                         </div>
 
-                        <div className='bg-gray-40'>
-                            <button onClick={() => handleClick(id)}>x</button>
+                        <div className="bg-gray-40">
+                            <button onClick={() => handleClick(id)}> ✖️</button>
                         </div>
                     </div>
                 </div>

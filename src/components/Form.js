@@ -12,12 +12,22 @@ const Form = ({ value, setValue, onSubmit }) => {
         <>
             <form onSubmit={onSubmit}>
                 <input
+                    className="w-4/5 ml-4 "
                     type="text"
                     placeholder="할 일 입력하세요"
                     value={value}
                     onChange={handleChange}
                 />
-                <button type="submit"> 입력</button>
+
+                <div className="text-end mr-10">
+                    {" "}
+                    <button
+                        className="bg-blue-100 text-xl m-2 rounded-lg p-1 "
+                        type="submit">
+                        {" "}
+                        ❤️입력
+                    </button>
+                </div>
             </form>
         </>
     );
